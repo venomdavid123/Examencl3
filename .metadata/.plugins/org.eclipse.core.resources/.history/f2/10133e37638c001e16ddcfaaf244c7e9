@@ -1,0 +1,49 @@
+package com.bd.productos.servicios;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.bd.productos.modelo.ClassProducto;
+import com.bd.productos.repositorio.IProducto;
+
+@Service
+public class ClassProductoServicioImp   implements IProductoServicio{
+   //implementamos la inyeccion de dependencia...
+	@Autowired
+	private IAuto iautorepository;
+		
+	@Override
+	public List<ClassAuto> ListadoAutos() {
+		//retornamos el listado de autos..
+		return (List<ClassAuto>) iautorepository.findAll();
+	}  //fin del metodo listado autos..
+
+	@Override
+	public void RegistrarAuto(ClassAuto clauto) {
+		//registramos todos los datos a la bd...
+		iautorepository.save(clauto);
+		
+	}  //fin del metodo registrar auto...
+
+	@Override
+	public ClassAuto BuscarPorId(Integer id) {
+		//buscamos un registro por codigo
+		return iautorepository.findById(id).orElse(null);
+	}  //fin del metodo buscar por id..
+
+	@Override
+	public void EliminarAuto(Integer id) {
+		//eliminamos registro por codigo...
+		iautorepository.deleteById(id);
+		
+	}  //fin del metodo eliminar auto....
+
+	@Override
+	public void RegistrarAuto(ClassProducto clapro) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}  //fin de la clase ...

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	<title>Registrar Producto</title>	
+	<style>
+		html{
+			background-color: aquamarine;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+	</style>
+	</head>
+	<body>
+		<h1 align="center">Registrar Producto</h1>
+		<form th:action="@{/ControlProducto/GuardarProducto}" th:Object="${regpro}" method="post">
+			<table align="center">
+				<input type="hidden" th:field="*{idproductocl3}">
+				<tr>
+					<td>Nombre Producto</td><td><input type="text" th:field="*{nombrecl3}"></td>
+				</tr>
+				<tr>
+					<td>Precio Venta</td><td><input type="number" th:field="*{precioventacl3}"></td>
+				</tr>
+				<tr>
+					<td>Stock</td><td><input type="number" th:field="*{stock}"></td>
+				</tr>
+				<tr>
+				<td>Precio Compra</td><td><input type="number" th:field="*{preciocompcl3}"></td>	
+				</tr>
+				<tr>
+					<td>Estado</td><td><input type="text" th:field="*{estadocl3}"></td>
+				</tr>
+				<tr>
+					<td>Descipcion</td><td><input type="text" th:field="*{descripcl3}"></td>
+				</tr>
+				<tr><td colspan="2" align="center">
+					<input type="submit" value="Registrar">
+				</td></tr>
+			</table>
+		</form>
+	</body>  
+</html>

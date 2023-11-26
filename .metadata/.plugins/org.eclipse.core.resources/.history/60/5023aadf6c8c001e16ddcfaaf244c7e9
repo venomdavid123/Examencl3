@@ -1,0 +1,52 @@
+package com.bd.productos.controlador;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.bd.productos.modelo.ClassProducto;
+import com.bd.productos.servicios.IProductoServicio;
+
+@Controller
+public class ProductoController {
+	//aplicamos una inyeccion de dependencia
+	@Autowired
+	private IProductoServicio iproductoservicio;
+	//creamos un metodo para listar producto
+	@GetMapping("/ListadoProductos")
+	public String ListadoProducto(Model modelo) {
+		List<ClassProducto> listar=iproductoservicio.ListadoProductos();		
+		//enviamos datos a la vista
+		modelo.addAttribute("listadoproductos" ,listar); //poner en la vista
+		//retornar a la vista
+		return "Vistas/Producto/ListadoProducto";
+	}//fin	metodo listado producto
+	
+	//creamos el metodo registrar...
+	
+	@GetMapping("/RegisProducto")
+	public String RegistrarProducto(Model model) {
+		//realizamos la respectiva instancia...
+		ClassProducto clapro=new ClassProducto();
+		//enviamo el objeto hacia la vista...
+		model.addAttribute("regpro",clapro);
+		//retornar a la vista
+		return "Vistas/Producto/FrmRegisProducto";
+	}
+	
+	@PostMapping("/GuardarAuto")
+	public String GuardarProducto(@ModelAttribute ClassProducto clapro) {
+		//aplicamos una inyeccion de dependencia
+		//e invocamos el metodo registrar auto
+		iproductoservicio.RegistrarProducto(clapro);	
+		//retornamos al listado
+		return "redirect:/ListadoProducto";
+	}  //fin del metodo guardar auto
+	
+	
+}

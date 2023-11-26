@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+		<title>
+			Listado de Producto
+		</title>
+	<h1 align="center">	
+			Listado de Producto
+		</h1>
+		<h2 align="center">
+			<a th:href="@{RegisProducto}">Registrar Nuevo Auto</a>
+		</h2>
+		<table align="center" border="2">
+			<tr><th>Codigo</th>
+			<th>Modelo</th>
+			<th>Color</th>
+			<th>Motor</th>
+			<th>Nro de Placa</th>
+			<th>Precio</th></tr>
+			<th:block th:each="p:${listadoautos}"></th>
+			<tr>
+				<td th:text="${p.idauto}"></td>
+				<td th:text="${p.modelo}"></td>
+				<td th:text="${p.color}"></td>
+				<td th:text="${p.motor}"></td>
+				<td th:text="${p.nroplaca}"></td>
+				<td th:text="${p.precio}"></td>
+			</tr>
+			</th:block>
+		</table>
+	</body>
+</html>

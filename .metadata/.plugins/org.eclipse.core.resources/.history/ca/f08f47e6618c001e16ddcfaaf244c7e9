@@ -1,0 +1,5 @@
+package com.bd.productos.repositorio;
+
+public interface IProducto {
+
+}

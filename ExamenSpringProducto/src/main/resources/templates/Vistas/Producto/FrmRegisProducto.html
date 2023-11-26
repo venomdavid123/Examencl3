@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	<title>Registrar Producto</title>	
+	<style>
+		body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table td {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: calc(100% - 10px);
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+	</style>
+	</head>
+	<body>
+		<h1 align="center">Registrar Producto</h1>
+		<form th:action="@{/ControlProducto/GuardarProducto}" th:Object="${regpro}" method="post">
+			<table align="center">
+				<input type="hidden" th:field="*{idproductocl3}">
+				<tr>
+					<td>Nombre Producto</td><td><input type="text" th:field="*{nombrecl3}"></td>
+				</tr>
+				<tr>
+					<td>Precio Venta</td><td><input type="number" th:field="*{precioventacl3}"></td>
+				</tr>
+				<tr>
+					<td>Stock</td><td><input type="number" th:field="*{stock}"></td>
+				</tr>
+				<tr>
+				<td>Precio Compra</td><td><input type="number" th:field="*{preciocompcl3}"></td>	
+				</tr>
+				<tr>
+                 <td>Estado</td>
+                   <td>
+                    <select th:field="*{estadocl3}">
+                     <option value="Activo">Activo</option>
+                     <option value="Desactivado">Desactivado</option>
+                   </select>
+                  </td>
+                </tr>				
+				<tr>
+					<td>Descipcion</td><td><input type="text" th:field="*{descripcl3}"></td>
+				</tr>
+				<tr><td colspan="2" align="center">
+					<input type="submit" value="Registrar">
+				</td></tr>
+			</table>
+		</form>
+	</body>  
+</html>

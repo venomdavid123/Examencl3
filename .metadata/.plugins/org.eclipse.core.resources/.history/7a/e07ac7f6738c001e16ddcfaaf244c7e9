@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			Listado de Producto
+		</title>
+		<style>
+		html{
+			background-color: aquamarine;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+	</style>
+		</head>
+	<h1 align="center">	
+			Listado de Producto
+		</h1>
+		<h2 align="center">
+			<a th:href="@{RegisProducto}">Registrar Nuevo Producto</a>
+		</h2>
+		<table align="center" border="2">
+			<tr>
+			<th>Codigo</th>
+			<th>Nombre Producto</th>
+			<th>Precio Venta</th>
+			<th>Stock</th>
+			<th>Precio Compra</th>
+			<th>Estado</th>
+			<th>Descipcion</th>
+			<th colspan="2">Acciones</th>
+			</tr>
+			<th:block th:each="p:${listadoproductos}"></th>
+			<tr>
+				<td th:text="${p.idproductocl3}"></td>
+				<td th:text="${p.nombrecl3}"></td>
+				<td th:text="${p.precioventacl3}"></td>
+				<td th:text="${p.stock}"></td>
+				<td th:text="${p.preciocompcl3}"></td>
+				<td th:text="${p.estadocl3}"></td>
+				<td th:text="${p.descripcl3}"></td>
+				<td><a th:href="@{Editar/}+${p.idproductocl3}" th:text="Actualizar" class="btn btn-primary"></a></td>				
+				<td><a th:href="@{Eliminar/}+${p.idproductocl3}" th:text="Eliminar" class="btn btn-warning"></a></td>
+			</tr>
+			</th:block>
+		</table>
+	</body>
+</html>

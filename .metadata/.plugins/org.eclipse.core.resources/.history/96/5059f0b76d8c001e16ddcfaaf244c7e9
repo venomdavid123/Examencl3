@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+		<title>
+			Listado de Producto
+		</title>
+	<h1 align="center">	
+			Listado de Producto
+		</h1>
+		<h2 align="center">
+			<a th:href="@{RegisProducto}">Registrar Nuevo Producto</a>
+		</h2>
+		<table align="center" border="2">
+			<tr>
+			<th>Codigo</th>
+			<th>Nombre Producto</th>
+			<th>Precio Venta</th>
+			<th>Stock</th>
+			<th>Precio Completo</th>
+			<th>Estado</th>
+			<th>Descipcion</th>
+			</tr>
+			<th:block th:each="p:${listadoproductos}"></th>
+			<tr>
+				<td th:text="${p.idproductocl3}"></td>
+				<td th:text="${p.nombrecl3}"></td>
+				<td th:text="${p.precioventacl3}"></td>
+				<td th:text="${p.stock}"></td>
+				<td th:text="${p.preciocompcl3}"></td>
+				<td th:text="${p.estadocl3}"></td>
+				<td th:text="${p.descripcl3}"></td>
+			</tr>
+			</th:block>
+		</table>
+	</body>
+</html>
